@@ -1,9 +1,10 @@
 import React from 'react';
-import './Root.css';
+import Home from './components/Home';
+import './Root.scss';
 
 const Root = () => (
   <div className="app">
-    <div>some content here</div>
+    <Home />
   </div>
 );
 

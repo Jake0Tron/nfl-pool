@@ -13,8 +13,15 @@ module.exports = {
         options: { presets: ['@babel/env'] }
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(sa|c|sc)ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
       }
     ]
   },
@@ -27,7 +34,8 @@ module.exports = {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
     publicPath: 'http://localhost:3000/dist/',
-    hot: true
+    hot: true,
+    open: true
   },
   plugins: [
     new CleanWebpackPlugin(),
